@@ -1,0 +1,2 @@
+# Szorg.
+Szorgalmi2

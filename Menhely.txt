@@ -1,0 +1,90 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+struct Allat{
+    string nev;
+    string faj;
+    string szin;
+    int kor;
+
+};
+
+int main()
+{
+    Allat seged;
+    int db=0;
+    ifstream olvas("allatok.txt");
+        while(!olvas.eof()){
+            olvas >> seged.nev;
+            olvas >> seged.faj;
+            olvas >> seged.szin;
+            olvas >> seged.kor;
+            db++;
+        }
+    olvas.close();
+    Allat allatok[db];
+    olvas.open("allatok.txt");
+        for(int i=0;i<db;i++){
+            olvas >> allatok[i].nev;
+            olvas >> allatok[i].faj;
+            olvas >> allatok[i].szin;
+            olvas >> allatok[i].kor;
+        }
+    olvas.close();
+    db--;
+    cout << "Adja meg, mi alapjan szeretne rakeresni az allatokra." << endl << "Lehetosegek: ";
+    cout << "Nev" << ", ";
+    cout << "Faj" << ", ";
+    cout << "Szin" << ", ";
+    cout << "Kor" << endl;
+    string id;
+    cin >> id;
+    cout << "Adja meg a keresni kivant erteket: ";
+    if(id=="Nev" || id=="nev"){
+        string data;
+        cin >> data;
+        for(int i=0;i<db;i++){
+            if(allatok[i].nev==data){
+                cout << allatok[i].nev << endl;
+                cout << allatok[i].faj << endl;
+                cout << allatok[i].szin << endl;
+                cout << allatok[i].kor << endl << endl;
+            }
+        }
+    }else if(id=="Faj" || id=="faj"){
+        string data;
+        cin >> data;
+        for(int i=0;i<db;i++){
+            if(allatok[i].faj==data){
+                cout << allatok[i].nev << endl;
+                cout << allatok[i].faj << endl;
+                cout << allatok[i].szin << endl;
+                cout << allatok[i].kor << endl << endl;
+            }
+        }
+    }else if(id=="Szin" || id=="szin"){
+        string data;
+        cin >> data;
+        for(int i=0;i<db;i++){
+            if(allatok[i].szin==data){
+                cout << allatok[i].nev << endl;
+                cout << allatok[i].faj << endl;
+                cout << allatok[i].szin << endl;
+                cout << allatok[i].kor << endl << endl;
+            }
+        }
+    }else if(id=="Kor" || id=="kor"){
+        int data;
+        cin >> data;
+        for(int i=0;i<db;i++){
+            if(allatok[i].kor==data){
+                cout << allatok[i].nev << endl;
+                cout << allatok[i].faj << endl;
+                cout << allatok[i].szin << endl;
+                cout << allatok[i].kor << endl << endl;
+            }
+        }
+    }
+}
